@@ -1,0 +1,23 @@
+{
+  "name": "awesomelist",
+  "version": "0.0.0",
+  "authors": [
+    "Vishnu B <vishnu.nxg@gmail.com>"
+  ],
+  "description": "The awesome to-do list",
+  "main": "index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.4",
+    "vue": "~0.12.7",
+    "vue-resource": "~0.1.7"
+  }
+}
