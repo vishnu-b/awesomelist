@@ -12,7 +12,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" id="list">
 			<h1 class="text-center">Awesome List</h1>
 			<hr>
 			<div class="row">
@@ -38,22 +38,14 @@
 		                <div class="panel-body">
 		                    <div class="tab-content">
 		                        <div role="tabpanel" class="tab-pane active" id="pending">
-		                        	@for ($i = 0; $i < 10; $i++)
-			                        	<div class="row">
-			                        		<div class="col-md-12">
-			                        			<input type="checkbox"> Remember me</label>
-			                        		</div>
-			                        	</div>
-		                        	@endfor
+		                        	<div class="row" v-repeat="items">
+		                        		<div class="col-md-12">
+		                        			<input type="checkbox">@{{ item }}
+		                        		</div>
+		                        	</div>
 		                        </div>
 		                        <div role="tabpanel" class="tab-pane" id="completed">
-		                        	@for ($i = 0; $i < 10; $i++)
-			                        	<div class="row">
-			                        		<div class="col-md-12">
-			                        			<input type="checkbox"> Remember me</label>
-			                        		</div>
-			                        	</div>
-		                        	@endfor
+
 	                		    </div>
 		                    </div>
 		                </div>
@@ -61,7 +53,6 @@
 	        	</div>
 	        </div>
 		</div>
-
 
 		<script src="/awesomelist/js/app.js"></script>
 		<script src="/awesomelist/js/list.js"></script>
