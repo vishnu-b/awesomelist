@@ -9,6 +9,20 @@ new Vue({
 		items: []
 	},
 
+	computed: {
+		completed: function () {
+			return this.items.filter(function (item) {
+				return item.completed == '1';
+			});
+		},
+
+		incompleted: function () {
+			return this.items.filter(function (item) {
+				return item.completed == '0';
+			});
+		}
+	},
+
 	ready: function () {
 		this.fetchLists();
 	},

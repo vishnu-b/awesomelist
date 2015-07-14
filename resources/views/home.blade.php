@@ -32,63 +32,68 @@
 				</form>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<div class="panel with-nav-tabs panel-success">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<h3 class="panel-title">Pending List</h3>
+				<div v-cloak>
+					<div class="col-md-6">
+						<div class="panel with-nav-tabs panel-success">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Pending List (@{{ incompleted.length }})</h3>
+								</div>
+								<ul class="list-group">
+									<li class="list-group-item" v-repeat="item: items | inComplete">
+										<label>@{{ item.item }}</label>
+										<button class="delete"
+														v-on="click: deleteItem(item)"\
+														data-toggle="tooltip"
+														data-placement="top"
+														title="Delete item"
+										>
+											<i class="fa fa-trash-o"></i>
+										</button>
+										<button class="complete"
+														v-on="click: completeItem(item)"
+														data-toggle="tooltip"
+														data-placement="top"
+														title="Mark item as complted"
+										>
+											<i class="fa fa-check"></i>
+										</button>
+									</li>
+								</ul>
 							</div>
-							<ul class="list-group" v-cloak>
-								<li class="list-group-item" v-repeat="item: items | inComplete">
-									<label>@{{ item.item }}</label>
-									<button class="delete"
-													v-on="click: deleteItem(item)"\
-													data-toggle="tooltip"
-													data-placement="top"
-													title="Delete item"
-									>
-										<i class="fa fa-trash-o"></i>
-									</button>
-									<button class="complete"
-													v-on="click: completeItem(item)"
-													data-toggle="tooltip"
-													data-placement="top"
-													title="Mark item as complted"
-									>
-										<i class="fa fa-check"></i>
-									</button>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="panel with-nav-tabs panel-success">
-						<div class="panel panel-primary">
-							<div class="panel-heading">
-								<h3 class="panel-title">Completed List</h3>
+
+				<div v-cloak>
+					<div class="col-md-6" v-if="completed.length">
+						<div class="panel with-nav-tabs panel-success">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Completed List (@{{ completed.length }})</h3>
+								</div>
+								<ul class="list-group">
+									<li class="list-group-item" v-repeat="item: items | complete">
+										<label>@{{ item.item }}</label>
+										<button class="delete"
+														v-on="click: deleteItem(item)"\
+														data-toggle="tooltip"
+														data-placement="top"
+														title="Delete item"
+										>
+											<i class="fa fa-trash-o"></i>
+										</button>
+										<button class="undo"
+														v-on="click: moveToInComplete(item)"
+														data-toggle="tooltip"
+														data-placement="top"
+														title="Move to pending list!"
+										>
+											<i class="fa fa-undo"></i>
+										</button>
+									</li>
+								</ul>
 							</div>
-							<ul class="list-group" v-cloak>
-								<li class="list-group-item" v-repeat="item: items | complete">
-									<label>@{{ item.item }}</label>
-									<button class="delete"
-													v-on="click: deleteItem(item)"\
-													data-toggle="tooltip"
-													data-placement="top"
-													title="Delete item"
-									>
-										<i class="fa fa-trash-o"></i>
-									</button>
-									<button class="undo"
-													v-on="click: moveToInComplete(item)"
-													data-toggle="tooltip"
-													data-placement="top"
-													title="Move to pending list!"
-									>
-										<i class="fa fa-undo"></i>
-									</button>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>
