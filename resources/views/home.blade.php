@@ -7,6 +7,11 @@
 		<title>Awesome List</title>
 		<link href="//fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 		<link href="/awesomelist/css/app.css" rel="stylesheet">
+		<style>
+			[v-cloak] {
+				display: none;
+			}
+		</style>
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -63,7 +68,7 @@
 							<div class="panel-heading">
 								<h3 class="panel-title">Completed List</h3>
 							</div>
-							<ul class="list-group">
+							<ul class="list-group" v-cloak>
 								<li class="list-group-item" v-repeat="item: items | complete">
 									<label>@{{ item.item }}</label>
 									<button class="delete"
