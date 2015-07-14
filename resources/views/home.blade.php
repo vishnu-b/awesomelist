@@ -27,28 +27,36 @@
 	        </div>
 
 	        <div class="row">
-	        	<div class="col-md-12">
+	        	<div class="col-md-6">
 	            	<div class="panel with-nav-tabs panel-success">
-		                <div class="panel-heading">
-	                        <ul class="nav nav-tabs">
-	                            <li role="presentation" class="col-md-6 text-center active"><a href="#pending" data-toggle="tab" aria-expanded="">Pending</a></li>
-	                            <li role="presentation" class="col-md-6 text-center"><a href="#completed" data-toggle="tab" aria-expanded="false">Completed</a></li>
-	                        </ul>
-		                </div>
-		                <div class="panel-body">
-		                    <div class="tab-content">
-		                        <div role="tabpanel" class="tab-pane active" id="pending">
-		                        	<div class="row" v-repeat="items">
-		                        		<div class="col-md-12">
-		                        			<input type="checkbox">@{{ item }}
-		                        		</div>
-		                        	</div>
-		                        </div>
-		                        <div role="tabpanel" class="tab-pane" id="completed">
-
-	                		    </div>
-		                    </div>
-		                </div>
+						<div class="panel panel-primary">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Pending List</h3>
+						  </div>
+						  <div class="panel-body">
+						    <div class="row" v-repeat="items">
+						    	<div class="col-md-12">
+						    		<input type="checkbox">@{{ item }}
+						    	</div>
+						    </div>
+						  </div>
+						</div>
+	            	</div>
+	        	</div>
+	        	<div class="col-md-6">
+	            	<div class="panel with-nav-tabs panel-success">
+						<div class="panel panel-primary">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Completed List</h3>
+						  </div>
+						  <div class="panel-body">
+						    <div class="row" v-repeat="items">
+						    	<div class="col-md-12">
+						    		<input type="checkbox">@{{ item }}
+						    	</div>
+						    </div>
+						  </div>
+						</div>
 	            	</div>
 	        	</div>
 	        </div>
