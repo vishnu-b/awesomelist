@@ -10,6 +10,18 @@ Route::group(['prefix' => 'awesomelist'], function () {
     });
 
     post('items', function () {
-        App\Item::create(Request::all());
+        $item = App\Item::create(Request::all());
+        return $item->id;
+    });
+
+    put('items/{id}', function ($id) {
+        $item = App\Item::find($id);
+        $item->completed = $item->completed? false : true;
+        $item->update();
+    });
+
+    delete('items/{id}', function ($id) {
+        $item = App\Item::find($id);
+        $item->delete();
     });
 });
